@@ -1,0 +1,113 @@
+<!-- Compress Card Component -->
+<div class="card bg-base-100 shadow-xl border border-base-300">
+    <div class="card-body flex flex-col justify-between h-full">
+        <!-- Header -->
+        <div class="mb-6">
+            <h2 class="card-title text-3xl mb-2">Compress & Convert</h2>
+            <p class="text-base-content opacity-75 text-sm">Reduce file sizes up to 95% while maintaining quality</p>
+        </div>
+
+        <!-- Form -->
+        <form id="compressForm" class="space-y-5 flex-grow">
+            <!-- File Input -->
+            <div class="input-group">
+                <label class="form-control w-full">
+                    <div class="label">
+                        <span class="label-text font-semibold">Select Image</span>
+                    </div>
+                    <input type="file" id="compressFile" accept="image/*"
+                        class="file-input file-input-bordered w-full file-input-md" required>
+                    <div class="label">
+                        <span class="label-text-alt">Supports: JPG, PNG, WebP, GIF, BMP</span>
+                    </div>
+                </label>
+            </div>
+
+            <!-- Quality Slider -->
+            <div class="input-group">
+                <div class="flex justify-between items-center mb-2">
+                    <label class="form-control w-full">
+                        <div class="label">
+                            <span class="label-text font-semibold">Compression Quality</span>
+                            <span class="badge badge-primary" id="qualityBadge">30%</span>
+                        </div>
+                    </label>
+                </div>
+                <input type="range" id="compressQuality" min="1" max="100" value="30" class="range range-md w-full">
+                <div class="flex justify-between text-xs opacity-60 mt-2">
+                    <span>Lower (Smaller)</span>
+                    <span>Higher (Better)</span>
+                </div>
+            </div>
+
+            <!-- Dimensions -->
+            <div class="grid grid-cols-2 gap-4">
+                <label class="form-control w-full">
+                    <div class="label">
+                        <span class="label-text font-semibold">Max Width</span>
+                    </div>
+                    <input type="number" id="compressMaxWidth" value="1920" class="input input-bordered w-full input-md"
+                        min="100" max="4000">
+                    <div class="label">
+                        <span class="label-text-alt">pixels</span>
+                    </div>
+                </label>
+                <label class="form-control w-full">
+                    <div class="label">
+                        <span class="label-text font-semibold">Max Height</span>
+                    </div>
+                    <input type="number" id="compressMaxHeight" value="1080"
+                        class="input input-bordered w-full input-md" min="100" max="4000">
+                    <div class="label">
+                        <span class="label-text-alt">pixels</span>
+                    </div>
+                </label>
+            </div>
+
+            <!-- Format Selection -->
+            <label class="form-control w-full">
+                <div class="label">
+                    <span class="label-text font-semibold">Output Format</span>
+                </div>
+                <select id="compressFormat" class="select select-bordered w-full select-md">
+                    <option value="webp" selected>WebP (Best Compression)</option>
+                    <option value="jpeg">JPEG (Compatibility)</option>
+                    <option value="png">PNG (Lossless)</option>
+                    <option value="gif">GIF (Animation)</option>
+                    <option value="bmp">BMP (Uncompressed)</option>
+                </select>
+            </label>
+        </form>
+
+        <!-- Loading State -->
+        <div id="compressLoading" class="loading mt-6 flex justify-center hidden">
+            <span class="loading loading-spinner loading-lg"></span>
+        </div>
+
+        <!-- Results -->
+        <div id="compressResult" class="mt-6 p-5 rounded-lg bg-base-200 border border-base-300 hidden">
+            <h3 class="font-bold text-lg mb-3">Compression Results</h3>
+            <div id="compressStats" class="space-y-3 mb-4">
+                <div class="flex justify-between items-center">
+                    <span class="font-medium">Original Size:</span>
+                    <span class="font-bold" id="origSize">-</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="font-medium">Compressed Size:</span>
+                    <span class="font-bold" id="compSize">-</span>
+                </div>
+                <div class="divider my-2"></div>
+                <div class="flex justify-between items-center">
+                    <span class="font-medium">Compression Ratio:</span>
+                    <span class="text-success font-bold text-lg" id="compRatio">-</span>
+                </div>
+            </div>
+            <button class="btn btn-sm btn-success w-full downloadCompressBtn">↓ Download Compressed Image</button>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" form="compressForm" class="btn btn-primary w-full mt-6 btn-lg font-bold">
+            Compress Image
+        </button>
+    </div>
+</div>

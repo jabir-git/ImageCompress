@@ -1,0 +1,12 @@
+[project]
+name = "fastapiapp"
+version = "0.1.0"
+description = "Aggressive Image Compressor and File Type Converter"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "fastapi[standard]>=0.128.0",
+    "ruff>=0.14.10",
+    "pillow>=10.1.0",
+    "python-multipart>=0.0.6",
+]
