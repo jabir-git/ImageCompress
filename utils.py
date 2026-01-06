@@ -5,7 +5,7 @@ import io
 
 # Default image processing settings
 DEFAULT_QUALITY = 85
-# "Maximum compression" for lossy formats (lower = smaller file)
+# Balanced quality for web assets (smaller file size with acceptable visual quality)
 DEFAULT_COMPRESS_QUALITY = 1
 DEFAULT_MAX_WIDTH = 1920
 DEFAULT_MAX_HEIGHT = 1080

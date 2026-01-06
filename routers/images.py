@@ -8,6 +8,7 @@ import json
 import zipfile
 import tempfile
 import os
+from typing import Literal
 
 from utils import (
     compress_image,
@@ -25,7 +26,7 @@ TEMP_SUFFIX = ".zip"
 ZIP_COMPRESSION = zipfile.ZIP_DEFLATED
 
 
-def validate_file(file: UploadFile) -> bool:
+def validate_file(file: UploadFile) -> bool | Literal[""] | None:
     """Validate if file is an image."""
     return file.content_type and file.content_type.startswith("image/")
 
